@@ -40,13 +40,13 @@ namespace RubikCubeSolver
 
             Array.Reverse(left);
 
-            Color[] top = new Color[] { this.bottom.Tiles[2, 0], this.bottom.Tiles[2, 1], this.bottom.Tiles[2, 2] };
+            Color[] top = new Color[] { this.top.Tiles[2, 0], this.top.Tiles[2, 1], this.top.Tiles[2, 2] };
 
             Color[] right = new Color[] { this.right.Tiles[0, 0], this.right.Tiles[1, 0], this.right.Tiles[2, 0] };
 
             Array.Reverse(right);
 
-            this.top.ChangeTopRow(left);
+            this.top.ChangeBottomRow(left);
 
             this.right.ChangeLeftCol(top);
 

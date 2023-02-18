@@ -32,6 +32,8 @@ namespace RubikCubeSolver
 
         public Face(Color[,] tiles)
         {
+            this.tiles = new Color[3, 3];
+
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
@@ -56,7 +58,7 @@ namespace RubikCubeSolver
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    tiles[i, j] = temp[3-j, i];
+                    tiles[i, j] = temp[2-j, i];
                 }
             }
         }

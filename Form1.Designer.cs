@@ -96,6 +96,7 @@
             this.leftButton = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
+            this.loadButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // topTopLeft
@@ -652,7 +653,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(534, 559);
+            this.button13.Location = new System.Drawing.Point(516, 559);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(75, 35);
             this.button13.TabIndex = 66;
@@ -661,7 +662,7 @@
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(534, 600);
+            this.resetButton.Location = new System.Drawing.Point(516, 600);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 35);
             this.resetButton.TabIndex = 67;
@@ -669,11 +670,22 @@
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
+            // loadButton
+            // 
+            this.loadButton.Location = new System.Drawing.Point(597, 600);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(75, 35);
+            this.loadButton.TabIndex = 68;
+            this.loadButton.Text = "Load";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 675);
+            this.Controls.Add(this.loadButton);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.leftPrimeButton);
@@ -818,6 +830,7 @@
         private System.Windows.Forms.Button leftButton;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button loadButton;
     }
 }
 

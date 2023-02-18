@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -22,8 +23,7 @@ namespace RubikCubeSolver
 
         Cube cube;
 
-
-        bool tilesEnabled;
+        bool buttonEnabled;
 
         public Form1()
         {
@@ -106,18 +106,20 @@ namespace RubikCubeSolver
                 }
             }
 
+            cube = null;
+            
         }
 
         private bool ValidCube()
         {
             List<Color> centerList = new List<Color>()
             { 
-                topButtons[0,0].BackColor, 
-                leftButtons[0,0].BackColor,
-                frontButtons[0, 0].BackColor,
-                rightButtons[0, 0].BackColor,
-                backButtons[0, 0].BackColor,
-                bottomButtons[0, 0].BackColor,
+                topButtons[1,1].BackColor, 
+                leftButtons[1,1].BackColor,
+                frontButtons[1, 1].BackColor,
+                rightButtons[1, 1].BackColor,
+                backButtons[1, 1].BackColor,
+                bottomButtons[1, 1].BackColor,
             };
 
             if (centerList.Distinct().Count() != centerList.Count())
@@ -198,7 +200,7 @@ namespace RubikCubeSolver
                 }
             }
 
-            tilesEnabled = b;
+            buttonEnabled = b;
         }
 
         private void resetButton_Click(object sender, EventArgs e)
@@ -237,6 +239,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.Front();
@@ -254,6 +257,7 @@ namespace RubikCubeSolver
             if(cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.FrontPrime();
@@ -270,6 +274,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.Up();
@@ -286,6 +291,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.UpPrime();
@@ -302,6 +308,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.Right();
@@ -318,6 +325,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.RightPrime();
@@ -334,6 +342,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.Back();
@@ -350,6 +359,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.BackPrime();
@@ -366,6 +376,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.Down();
@@ -382,6 +393,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.DownPrime();
@@ -398,6 +410,7 @@ namespace RubikCubeSolver
             if (cube == null)
             {
                 InitializeCube();
+                ToggleTileClick(false);
             }
 
             cube.Left();
@@ -472,6 +485,75 @@ namespace RubikCubeSolver
         private void ShowErrorMessage(string message, string caption)
         { 
             MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            StreamReader reader = new StreamReader("read.txt");
+
+            //reads faces in this order: top, left, front, right, back, bottom
+
+            List<Color[,]> faceColors = new List<Color[,]>()
+            {
+                new Color[3,3],
+                new Color[3,3],
+                new Color[3,3],
+                new Color[3,3],
+                new Color[3,3],
+                new Color[3,3],
+            };
+
+            
+
+            for (int i = 0; i < 6; i++)
+            {
+                string line = reader.ReadLine();
+
+                for (int j = 0; j < 9; j++)
+                {
+                    int row = j / 3;
+                    int col = j % 3;
+                    faceColors[i][row, col] = CharToColor(line[j]);
+                }
+            }
+
+            //CHECK VALID
+
+        }
+
+        private Color CharToColor(char c)
+        { 
+            switch (c) 
+            {
+                case 'w':
+                case 'W':
+                    return Color.White;
+
+
+                case 'r':
+                case 'R':
+                    return Color.Red;
+
+
+                case 'y':
+                case 'Y':
+                    return Color.Yellow;
+
+
+                case 'g':
+                case 'G':
+                    return Color.Green;
+
+
+                case 'b':
+                case 'B':
+                    return Color.Blue;
+
+
+                default:
+                    return Color.Orange;
+
+            }
         }
     }
 }
