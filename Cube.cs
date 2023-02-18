@@ -9,12 +9,12 @@ namespace RubikCubeSolver
 {
     internal class Cube
     {
-        private Face top;
-        private Face left;
-        private Face right;
-        private Face back;
-        private Face bottom;
-        private Face front;
+        public Face top {get;}
+        public Face left {get;}
+        public Face right {get;}
+        public Face back {get;}
+        public Face bottom {get;}
+        public Face front {get;}
 
 
         public Cube(Face top, Face front, Face left, Face right, Face back, Face bottom) 
@@ -135,7 +135,7 @@ namespace RubikCubeSolver
         /// <summary>
         /// rotates the top face clockwise
         /// </summary>
-        public void Top()
+        public void Up()
         {
             top.RotateClock();
 
@@ -153,7 +153,7 @@ namespace RubikCubeSolver
         /// <summary>
         /// rotates the bottom face clockwise
         /// </summary>
-        public void Bottom()
+        public void Down()
         {
             this.bottom.RotateClock();
 
@@ -211,21 +211,21 @@ namespace RubikCubeSolver
         /// <summary>
         /// rotates the top face counter
         /// </summary>
-        public void TopPrime()
+        public void UpPrime()
         {
-            Top();
-            Top();
-            Top();
+            Up();
+            Up();
+            Up();
         }
 
         /// <summary>
         /// rotates the bottom face counter
         /// </summary>
-        public void BottomPrime()
+        public void DownPrime()
         {
-            Bottom();
-            Bottom();
-            Bottom();
+            Down();
+            Down();
+            Down();
         }
 
         

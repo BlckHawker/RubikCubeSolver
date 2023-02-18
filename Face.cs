@@ -30,6 +30,17 @@ namespace RubikCubeSolver
             };
         }
 
+        public Face(Color[,] tiles)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    this.tiles[i,j] = tiles[i,j];
+                }
+            }
+        }
+
         public void RotateCounter()
         {
             RotateClock();

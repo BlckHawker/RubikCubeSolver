@@ -82,20 +82,20 @@
             this.backTopLeft = new System.Windows.Forms.Button();
             this.bottomMiddleMiddle = new System.Windows.Forms.Button();
             this.backMiddleMiddle = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.frontButton = new System.Windows.Forms.Button();
+            this.upButton = new System.Windows.Forms.Button();
+            this.rightPrimeButton = new System.Windows.Forms.Button();
+            this.rightButton = new System.Windows.Forms.Button();
+            this.backPrimeButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
+            this.upPrimeButton = new System.Windows.Forms.Button();
+            this.frontPrimeButton = new System.Windows.Forms.Button();
+            this.downPrimeButton = new System.Windows.Forms.Button();
+            this.downButton = new System.Windows.Forms.Button();
+            this.leftPrimeButton = new System.Windows.Forms.Button();
+            this.leftButton = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.resetButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // topTopLeft
@@ -530,113 +530,125 @@
             this.backMiddleMiddle.TabIndex = 53;
             this.backMiddleMiddle.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // frontButton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 559);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "F";
-            this.button1.UseVisualStyleBackColor = true;
+            this.frontButton.Location = new System.Drawing.Point(12, 559);
+            this.frontButton.Name = "frontButton";
+            this.frontButton.Size = new System.Drawing.Size(75, 35);
+            this.frontButton.TabIndex = 54;
+            this.frontButton.Text = "F";
+            this.frontButton.UseVisualStyleBackColor = true;
+            this.frontButton.Click += new System.EventHandler(this.frontButton_Click);
             // 
-            // button2
+            // upButton
             // 
-            this.button2.Location = new System.Drawing.Point(93, 559);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 35);
-            this.button2.TabIndex = 55;
-            this.button2.Text = "U";
-            this.button2.UseVisualStyleBackColor = true;
+            this.upButton.Location = new System.Drawing.Point(93, 559);
+            this.upButton.Name = "upButton";
+            this.upButton.Size = new System.Drawing.Size(75, 35);
+            this.upButton.TabIndex = 55;
+            this.upButton.Text = "U";
+            this.upButton.UseVisualStyleBackColor = true;
+            this.upButton.Click += new System.EventHandler(this.upButton_Click);
             // 
-            // button3
+            // rightPrimeButton
             // 
-            this.button3.Location = new System.Drawing.Point(174, 600);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 35);
-            this.button3.TabIndex = 57;
-            this.button3.Text = "R\'";
-            this.button3.UseVisualStyleBackColor = true;
+            this.rightPrimeButton.Location = new System.Drawing.Point(174, 600);
+            this.rightPrimeButton.Name = "rightPrimeButton";
+            this.rightPrimeButton.Size = new System.Drawing.Size(75, 35);
+            this.rightPrimeButton.TabIndex = 57;
+            this.rightPrimeButton.Text = "R\'";
+            this.rightPrimeButton.UseVisualStyleBackColor = true;
+            this.rightPrimeButton.Click += new System.EventHandler(this.rightPrimeButton_Click);
             // 
-            // button4
+            // rightButton
             // 
-            this.button4.Location = new System.Drawing.Point(174, 559);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 35);
-            this.button4.TabIndex = 56;
-            this.button4.Text = "R";
-            this.button4.UseVisualStyleBackColor = true;
+            this.rightButton.Location = new System.Drawing.Point(174, 559);
+            this.rightButton.Name = "rightButton";
+            this.rightButton.Size = new System.Drawing.Size(75, 35);
+            this.rightButton.TabIndex = 56;
+            this.rightButton.Text = "R";
+            this.rightButton.UseVisualStyleBackColor = true;
+            this.rightButton.Click += new System.EventHandler(this.rightButton_Click);
             // 
-            // button5
+            // backPrimeButton
             // 
-            this.button5.Location = new System.Drawing.Point(255, 600);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 35);
-            this.button5.TabIndex = 59;
-            this.button5.Text = "B\'";
-            this.button5.UseVisualStyleBackColor = true;
+            this.backPrimeButton.Location = new System.Drawing.Point(255, 600);
+            this.backPrimeButton.Name = "backPrimeButton";
+            this.backPrimeButton.Size = new System.Drawing.Size(75, 35);
+            this.backPrimeButton.TabIndex = 59;
+            this.backPrimeButton.Text = "B\'";
+            this.backPrimeButton.UseVisualStyleBackColor = true;
+            this.backPrimeButton.Click += new System.EventHandler(this.backPrimeButton_Click);
             // 
-            // button6
+            // backButton
             // 
-            this.button6.Location = new System.Drawing.Point(255, 559);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 35);
-            this.button6.TabIndex = 58;
-            this.button6.Text = "B";
-            this.button6.UseVisualStyleBackColor = true;
+            this.backButton.Location = new System.Drawing.Point(255, 559);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 35);
+            this.backButton.TabIndex = 58;
+            this.backButton.Text = "B";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // button7
+            // upPrimeButton
             // 
-            this.button7.Location = new System.Drawing.Point(93, 600);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 35);
-            this.button7.TabIndex = 61;
-            this.button7.Text = "U\'";
-            this.button7.UseVisualStyleBackColor = true;
+            this.upPrimeButton.Location = new System.Drawing.Point(93, 600);
+            this.upPrimeButton.Name = "upPrimeButton";
+            this.upPrimeButton.Size = new System.Drawing.Size(75, 35);
+            this.upPrimeButton.TabIndex = 61;
+            this.upPrimeButton.Text = "U\'";
+            this.upPrimeButton.UseVisualStyleBackColor = true;
+            this.upPrimeButton.Click += new System.EventHandler(this.upPrimeButton_Click);
             // 
-            // button8
+            // frontPrimeButton
             // 
-            this.button8.Location = new System.Drawing.Point(12, 600);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 35);
-            this.button8.TabIndex = 60;
-            this.button8.Text = "F\'";
-            this.button8.UseVisualStyleBackColor = true;
+            this.frontPrimeButton.Location = new System.Drawing.Point(12, 600);
+            this.frontPrimeButton.Name = "frontPrimeButton";
+            this.frontPrimeButton.Size = new System.Drawing.Size(75, 35);
+            this.frontPrimeButton.TabIndex = 60;
+            this.frontPrimeButton.Text = "F\'";
+            this.frontPrimeButton.UseVisualStyleBackColor = true;
+            this.frontPrimeButton.Click += new System.EventHandler(this.frontPrimeButton_Click);
             // 
-            // button9
+            // downPrimeButton
             // 
-            this.button9.Location = new System.Drawing.Point(336, 600);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 35);
-            this.button9.TabIndex = 63;
-            this.button9.Text = "D\'";
-            this.button9.UseVisualStyleBackColor = true;
+            this.downPrimeButton.Location = new System.Drawing.Point(336, 600);
+            this.downPrimeButton.Name = "downPrimeButton";
+            this.downPrimeButton.Size = new System.Drawing.Size(75, 35);
+            this.downPrimeButton.TabIndex = 63;
+            this.downPrimeButton.Text = "D\'";
+            this.downPrimeButton.UseVisualStyleBackColor = true;
+            this.downPrimeButton.Click += new System.EventHandler(this.downPrimeButton_Click);
             // 
-            // button10
+            // downButton
             // 
-            this.button10.Location = new System.Drawing.Point(336, 559);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 35);
-            this.button10.TabIndex = 62;
-            this.button10.Text = "D";
-            this.button10.UseVisualStyleBackColor = true;
+            this.downButton.Location = new System.Drawing.Point(336, 559);
+            this.downButton.Name = "downButton";
+            this.downButton.Size = new System.Drawing.Size(75, 35);
+            this.downButton.TabIndex = 62;
+            this.downButton.Text = "D";
+            this.downButton.UseVisualStyleBackColor = true;
+            this.downButton.Click += new System.EventHandler(this.downButton_Click);
             // 
-            // button11
+            // leftPrimeButton
             // 
-            this.button11.Location = new System.Drawing.Point(417, 600);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 35);
-            this.button11.TabIndex = 65;
-            this.button11.Text = "L\'";
-            this.button11.UseVisualStyleBackColor = true;
+            this.leftPrimeButton.Location = new System.Drawing.Point(417, 600);
+            this.leftPrimeButton.Name = "leftPrimeButton";
+            this.leftPrimeButton.Size = new System.Drawing.Size(75, 35);
+            this.leftPrimeButton.TabIndex = 65;
+            this.leftPrimeButton.Text = "L\'";
+            this.leftPrimeButton.UseVisualStyleBackColor = true;
+            this.leftPrimeButton.Click += new System.EventHandler(this.leftPrimeButton_Click);
             // 
-            // button12
+            // leftButton
             // 
-            this.button12.Location = new System.Drawing.Point(417, 559);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 35);
-            this.button12.TabIndex = 64;
-            this.button12.Text = "L";
-            this.button12.UseVisualStyleBackColor = true;
+            this.leftButton.Location = new System.Drawing.Point(417, 559);
+            this.leftButton.Name = "leftButton";
+            this.leftButton.Size = new System.Drawing.Size(75, 35);
+            this.leftButton.TabIndex = 64;
+            this.leftButton.Text = "L";
+            this.leftButton.UseVisualStyleBackColor = true;
+            this.leftButton.Click += new System.EventHandler(this.leftButton_Click);
             // 
             // button13
             // 
@@ -647,34 +659,35 @@
             this.button13.Text = "Solve";
             this.button13.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // resetButton
             // 
-            this.button14.Location = new System.Drawing.Point(534, 600);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 35);
-            this.button14.TabIndex = 67;
-            this.button14.Text = "Reset";
-            this.button14.UseVisualStyleBackColor = true;
+            this.resetButton.Location = new System.Drawing.Point(534, 600);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(75, 35);
+            this.resetButton.TabIndex = 67;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 675);
-            this.Controls.Add(this.button14);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.button13);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.leftPrimeButton);
+            this.Controls.Add(this.leftButton);
+            this.Controls.Add(this.downPrimeButton);
+            this.Controls.Add(this.downButton);
+            this.Controls.Add(this.upPrimeButton);
+            this.Controls.Add(this.frontPrimeButton);
+            this.Controls.Add(this.backPrimeButton);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.rightPrimeButton);
+            this.Controls.Add(this.rightButton);
+            this.Controls.Add(this.upButton);
+            this.Controls.Add(this.frontButton);
             this.Controls.Add(this.backMiddleMiddle);
             this.Controls.Add(this.backBottomRight);
             this.Controls.Add(this.backBottomMiddle);
@@ -791,20 +804,20 @@
         private System.Windows.Forms.Button backTopLeft;
         private System.Windows.Forms.Button bottomMiddleMiddle;
         private System.Windows.Forms.Button backMiddleMiddle;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button frontButton;
+        private System.Windows.Forms.Button upButton;
+        private System.Windows.Forms.Button rightPrimeButton;
+        private System.Windows.Forms.Button rightButton;
+        private System.Windows.Forms.Button backPrimeButton;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button upPrimeButton;
+        private System.Windows.Forms.Button frontPrimeButton;
+        private System.Windows.Forms.Button downPrimeButton;
+        private System.Windows.Forms.Button downButton;
+        private System.Windows.Forms.Button leftPrimeButton;
+        private System.Windows.Forms.Button leftButton;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button resetButton;
     }
 }
 
