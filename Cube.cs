@@ -63,7 +63,7 @@ namespace RubikCubeSolver
         {
             back.RotateClock();
 
-            Color[] top = new Color[] { this.bottom.Tiles[2, 0], this.bottom.Tiles[2, 1], this.bottom.Tiles[2, 2] };
+            Color[] top = new Color[] { this.top.Tiles[0, 0], this.top.Tiles[0, 1], this.top.Tiles[0, 2] };
 
             Array.Reverse(top);
 
@@ -73,13 +73,13 @@ namespace RubikCubeSolver
 
             Array.Reverse(left);
 
-            Color[] bottom = new Color[] { this.bottom.Tiles[0, 0], this.bottom.Tiles[0, 1], this.bottom.Tiles[0, 2] };
+            Color[] bottom = new Color[] { this.bottom.Tiles[2, 0], this.bottom.Tiles[2, 1], this.bottom.Tiles[2, 2] };
 
             this.top.ChangeTopRow(right);
 
             this.right.ChangeRightCol(bottom);
 
-            this.bottom.ChangeTopRow(left);
+            this.bottom.ChangeBottomRow(left);
 
             this.left.ChangeLeftCol(top);
         }
@@ -118,11 +118,11 @@ namespace RubikCubeSolver
 
             Color[] top = new Color[] { this.top.Tiles[0, 0], this.top.Tiles[1, 0], this.top.Tiles[2, 0] };
             Color[] front = new Color[] { this.front.Tiles[0, 0], this.front.Tiles[1, 0], this.front.Tiles[2, 0] };
-            Color[] bottom = new Color[] { this.front.Tiles[0, 0], this.front.Tiles[1, 0], this.front.Tiles[2, 0] };
+            Color[] bottom = new Color[] { this.bottom.Tiles[0, 0], this.bottom.Tiles[1, 0], this.bottom.Tiles[2, 0] };
 
             Array.Reverse(bottom);
 
-            Color[] back = new Color[] { this.back.Tiles[2, 2], this.back.Tiles[1, 2], this.back.Tiles[0, 2] };
+            Color[] back = new Color[] { this.back.Tiles[0, 2], this.back.Tiles[1, 2], this.back.Tiles[2, 2] };
 
             Array.Reverse(back);
 
@@ -157,7 +157,7 @@ namespace RubikCubeSolver
         {
             this.bottom.RotateClock();
 
-            Color[] front = new Color[] { this.top.Tiles[2, 0], this.top.Tiles[2, 1], this.top.Tiles[2, 2] };
+            Color[] front = new Color[] { this.front.Tiles[2, 0], this.front.Tiles[2, 1], this.front.Tiles[2, 2] };
             Color[] left = new Color[] { this.left.Tiles[2, 0], this.left.Tiles[2, 1], this.left.Tiles[2, 2] };
             Color[] back = new Color[] { this.back.Tiles[2, 0], this.back.Tiles[2, 1], this.back.Tiles[2, 2] };
             Color[] right = new Color[] { this.right.Tiles[2, 0], this.right.Tiles[2, 1], this.right.Tiles[2, 2] };
@@ -165,7 +165,7 @@ namespace RubikCubeSolver
             this.front.ChangeBottomRow(left);
             this.right.ChangeBottomRow(front);
             this.back.ChangeBottomRow(right);
-            this.back.ChangeBottomRow(front);
+            this.left.ChangeBottomRow(back);
         }
     }
 }
