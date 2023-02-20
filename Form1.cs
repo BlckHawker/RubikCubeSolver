@@ -110,16 +110,16 @@ namespace RubikCubeSolver
             
         }
 
-        private bool ValidCube()
+        private bool ValidCube(Color[,] top, Color[,] left, Color[,] front, Color[,] right, Color[,] back, Color[,] bottom)
         {
             List<Color> centerList = new List<Color>()
-            { 
-                topButtons[1,1].BackColor, 
-                leftButtons[1,1].BackColor,
-                frontButtons[1, 1].BackColor,
-                rightButtons[1, 1].BackColor,
-                backButtons[1, 1].BackColor,
-                bottomButtons[1, 1].BackColor,
+            {
+                top[1,1],
+                left[1,1],
+                front[1, 1],
+                right[1, 1],
+                back[1, 1],
+                bottom[1, 1],
             };
 
             if (centerList.Distinct().Count() != centerList.Count())
@@ -131,12 +131,12 @@ namespace RubikCubeSolver
             
             List<Color> colorList = new List<Color>();
 
-            colorList.AddRange(GetButtonColors(topButtons));
-            colorList.AddRange(GetButtonColors(leftButtons));
-            colorList.AddRange(GetButtonColors(frontButtons));
-            colorList.AddRange(GetButtonColors(rightButtons));
-            colorList.AddRange(GetButtonColors(backButtons));
-            colorList.AddRange(GetButtonColors(bottomButtons));
+            colorList.AddRange(GetColors(top));
+            colorList.AddRange(GetColors(left));
+            colorList.AddRange(GetColors(front));
+            colorList.AddRange(GetColors(right));
+            colorList.AddRange(GetColors(back));
+            colorList.AddRange(GetColors(bottom));
 
 
             Dictionary<Color, int> colorDictionary = new Dictionary<Color, int>
@@ -173,13 +173,13 @@ namespace RubikCubeSolver
             return true;
         }
 
-        private Color[] GetButtonColors(Button[,] buttons)
+        private Color[] GetColors(Color[,] colors)
         { 
             List<Color> list = new List<Color>();
 
-            foreach(Button button in buttons)
+            foreach(Color c in colors)
             {
-                list.Add(button.BackColor);
+                list.Add(c);
             }
 
             return list.ToArray();
@@ -209,6 +209,7 @@ namespace RubikCubeSolver
             ToggleTileClick(true);
         }
 
+
         /// <summary>
         /// Changes the color of the tile when clicked
         /// </summary>
@@ -229,243 +230,353 @@ namespace RubikCubeSolver
             button.BackColor = colorArr[(index + 1) % colorArr.Length];
         }
 
+        private Color[,] ConvertButtonsToColors(Button[,] buttons)
+        {
+            Color[,] colors = new Color[3, 3];
+
+            for(int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    colors[i,j] = buttons[i,j].BackColor;
+                }
+            }
+
+            return colors;
+        }
+
         private void frontButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
             cube.Front();
-            UpdateDrawing();
+            UpdateDrawing(cube);
 
         }
 
         private void frontPrimeButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
-            if(cube == null)
+            if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
-            cube.FrontPrime();
-            UpdateDrawing();
+            cube.Front();
+            cube.Front();
+            cube.Front();
+
+            UpdateDrawing(cube);
         }
 
         private void upButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
             cube.Up();
-            UpdateDrawing();
+            UpdateDrawing(cube);
         }
 
         private void upPrimeButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
-            cube.UpPrime();
-            UpdateDrawing();
+            cube.Up();
+            cube.Up();
+            cube.Up();
+
+            UpdateDrawing(cube);
         }
 
         private void rightButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
             cube.Right();
-            UpdateDrawing();
+            UpdateDrawing(cube);
         }
 
         private void rightPrimeButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
-            cube.RightPrime();
-            UpdateDrawing();
+            cube.Right();
+            cube.Right();
+            cube.Right();
+
+            UpdateDrawing(cube);
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
             cube.Back();
-            UpdateDrawing();
+            UpdateDrawing(cube);
         }
 
         private void backPrimeButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
-            cube.BackPrime();
-            UpdateDrawing();
+            cube.Back();
+            cube.Back();
+            cube.Back();
+
+            UpdateDrawing(cube);
         }
 
         private void downButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
             cube.Down();
-            UpdateDrawing();
+            UpdateDrawing(cube);
         }
 
         private void downPrimeButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
-            cube.DownPrime();
-            UpdateDrawing();
+            cube.Down();
+            cube.Down();
+            cube.Down();
+
+            UpdateDrawing(cube);
         }
 
         private void leftButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
                 ToggleTileClick(false);
             }
 
             cube.Left();
-            UpdateDrawing();
+            UpdateDrawing(cube);
         }
 
         private void leftPrimeButton_Click(object sender, EventArgs e)
         {
-            if (!ValidCube())
+            Color[,] top = ConvertButtonsToColors(topButtons);
+            Color[,] left = ConvertButtonsToColors(leftButtons);
+            Color[,] front = ConvertButtonsToColors(frontButtons);
+            Color[,] right = ConvertButtonsToColors(rightButtons);
+            Color[,] bottom = ConvertButtonsToColors(bottomButtons);
+            Color[,] back = ConvertButtonsToColors(backButtons);
+
+
+            if (!ValidCube(top, left, front, right, back, bottom))
             {
                 return;
             }
 
             if (cube == null)
             {
-                InitializeCube();
+                cube = InitializeCube(top, left, front, right, bottom, back);
+                ToggleTileClick(false);
             }
 
-            cube.LeftPrime();
-            UpdateDrawing();
+            cube.Left();
+            cube.Left();
+            cube.Left();
+
+            UpdateDrawing(cube);
         }
 
-        private void InitializeCube()
+        private Cube InitializeCube(Color[,] topColors, Color[,] leftColors, Color[,] frontColors, Color[,] rightColors, Color[,] bottomColors,  Color[,] backColors)
         {
-            Color[,] topColors = new Color[3,3];
-            Color[,] leftColors = new Color[3,3];
-            Color[,] rightColors = new Color[3,3];
-            Color[,] bottomColors = new Color[3,3];
-            Color[,] frontColors = new Color[3,3];
-            Color[,] backColors = new Color[3, 3];
-
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    topColors[i, j] = topButtons[i, j].BackColor;
-                    leftColors[i, j] = leftButtons[i, j].BackColor;
-                    rightColors[i, j] = rightButtons[i, j].BackColor;
-                    bottomColors[i, j] = bottomButtons[i, j].BackColor;
-                    frontColors[i, j] = frontButtons[i, j].BackColor;
-                    backColors[i, j] = backButtons[i, j].BackColor;
-                }
-            }
 
             Face top = new Face(topColors);
             Face left = new Face(leftColors);
-            Face right = new Face(rightColors);
-            Face bottom = new Face(bottomColors);
             Face front = new Face(frontColors);
+            Face right = new Face(rightColors);
             Face back = new Face(backColors);
+            Face bottom = new Face(bottomColors);
 
-            cube = new Cube(top, front, left, right, back, bottom);
+            return new Cube(top, front, left, right, back, bottom);
         }
 
-        private void UpdateDrawing()
+        private void UpdateDrawing(Cube cube)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -518,6 +629,26 @@ namespace RubikCubeSolver
             }
 
             //CHECK VALID
+            if (!ValidCube(faceColors[0], faceColors[1], faceColors[2], faceColors[3], faceColors[4], faceColors[5]))
+            {
+                return;
+                
+            }
+
+            //update each face to it's respective colors
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    topButtons[i, j].BackColor = faceColors[0][i, j];
+                    leftButtons[i, j].BackColor = faceColors[1][i, j];
+                    frontButtons[i, j].BackColor = faceColors[2][i, j];
+                    rightButtons[i, j].BackColor = faceColors[3][i, j];
+                    backButtons[i, j].BackColor = faceColors[4][i, j];
+                    bottomButtons[i, j].BackColor = faceColors[5][i, j];
+                }
+            }
+
 
         }
 

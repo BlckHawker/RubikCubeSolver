@@ -99,13 +99,13 @@ namespace RubikCubeSolver
 
             Color[] bottom = new Color[] { this.bottom.Tiles[0, 2], this.bottom.Tiles[1, 2], this.bottom.Tiles[2, 2] };
 
-            Color[] back = new Color[] { this.back.Tiles[0, 2], this.back.Tiles[1, 2], this.back.Tiles[2, 2] };
+            Color[] back = new Color[] { this.back.Tiles[0, 0], this.back.Tiles[1, 0], this.back.Tiles[2, 0] };
 
             Array.Reverse(back);
 
             this.top.ChangeRightCol(front);
-            this.back.ChangeRightCol(top);
-            this.bottom.ChangeLeftCol(back);
+            this.back.ChangeLeftCol(top);
+            this.bottom.ChangeRightCol(back);
             this.front.ChangeRightCol(bottom);
         }
 
@@ -167,69 +167,5 @@ namespace RubikCubeSolver
             this.back.ChangeBottomRow(right);
             this.back.ChangeBottomRow(front);
         }
-
-        /// <summary>
-        /// rotates the front face counter
-        /// </summary>
-        public void FrontPrime()
-        {
-            Front();
-            Front();
-            Front();
-        }
-
-        /// <summary>
-        /// rotate the back face counter
-        /// </summary>
-        public void BackPrime()
-        {
-            Back();
-            Back();
-            Back();
-        }
-
-        /// <summary>
-        /// rotates the right face counter
-        /// </summary>
-        public void RightPrime()
-        {
-            Right();
-            Right();
-            Right();
-        }
-
-        /// <summary>
-        /// rotates the left face counter
-        /// </summary>
-        public void LeftPrime()
-        {
-            Left();
-            Left();
-            Left();
-        }
-
-        /// <summary>
-        /// rotates the top face counter
-        /// </summary>
-        public void UpPrime()
-        {
-            Up();
-            Up();
-            Up();
-        }
-
-        /// <summary>
-        /// rotates the bottom face counter
-        /// </summary>
-        public void DownPrime()
-        {
-            Down();
-            Down();
-            Down();
-        }
-
-        
-
-
     }
 }
