@@ -649,6 +649,8 @@ namespace RubikCubeSolver
                 }
             }
 
+            ToggleTileClick(true);
+
 
         }
 

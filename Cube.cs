@@ -139,7 +139,7 @@ namespace RubikCubeSolver
         {
             top.RotateClock();
 
-            Color[] front = new Color[] { this.top.Tiles[0, 0], this.top.Tiles[0, 1], this.top.Tiles[0, 2] };
+            Color[] front = new Color[] { this.front.Tiles[0, 0], this.front.Tiles[0, 1], this.front.Tiles[0, 2] };
             Color[] left = new Color[] { this.left.Tiles[0, 0], this.left.Tiles[0, 1], this.left.Tiles[0, 2] };
             Color[] back = new Color[] { this.back.Tiles[0, 0], this.back.Tiles[0, 1], this.back.Tiles[0, 2] };
             Color[] right = new Color[] { this.right.Tiles[0, 0], this.right.Tiles[0, 1], this.right.Tiles[0, 2] };
